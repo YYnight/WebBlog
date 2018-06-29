@@ -1,0 +1,34 @@
+mixin make_post(item,is_detail)
+    .post.animated.fadeInDown
+        .post-title
+            h3=item.title
+        
+        .post-content!=item.content
+        .post-footer: .meta
+            .info
+                i.fa.fa-sun-o
+                span.date=date(item.date,'YYYY-MM-DD')
+                if theme.duoshuo || theme.disqus
+                    i.fa.fa-comment-o
+                    a(href=url_for(item.path+"#comments"))=__('Comments')
+                    if item.tags
+                        i.fa.fa-tag
+                        - item.categories.sort('posts').each(function(item){
+                            a.tag(href=config.root+item.path,title=item.name)=item.name+" "
+                        - });
+                        - item.tags.sort('posts').each(function(item){
+                            a.tag(href=config.root+item.path,title=item.name)=item.name+" "
+                        - });
+
+mixin make_pager()
+    - var prev = page.prev_link
+    - var next = page.next_link
+    .pagination
+        ul.clearfix
+            if page.prev
+                li.pre.pagbuttons
+                    a.btn(role="navigation",href=url_for(prev))=__('prev')
+            if page.next
+                li.pre.pagbuttons
+                    a.btn(role="navigation",href=url_for(next))=__('next')
+                    

@@ -1,0 +1,26 @@
+extends _partial/layout
+block site_title 
+    != '夭夜的博客'
+block content
+    .arcontent
+            ul.cbp_tmtimeline
+                - page.posts.each(function(item){
+                    li
+                        time.cbp_tmtime
+                            span= date(item.date,"MM-DD")
+                            span= date(item.date,"YYYY")
+                        .cbp_tmicon
+                        div(class="cbp_tmlabel fadeInRight",data-scroll-reveal="enter right over 1s")
+                            h2= item.title
+                            p
+                                span.blogpic
+                                    a(href=url_for(item.path))
+                                        -if(item.categories.data[0].name == 'life')
+                                            img(src=url_for('images/p01.jpg'))
+                                        -if(item.categories.data[0].name == 'article')
+                                            img(src=url_for('images/p02.jpg'))
+                                        -if(item.categories.data[0].name == 'code')
+                                            img(src=url_for('images/p03.jpg'))
+                                != truncate(strip_html(item.content),{length: 100})
+                            a(href=url_for(item.path),class="readmore")!= "阅读全文>>"
+                - })

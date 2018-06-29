@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style: none;
+}
+body{
+    background-color: rgb(241,241,241);
+    overflow-x: hidden;
+}
+
+p{
+    word-break: break-all;
+}
+
+.header{
+    width: 100vw;
+    height: 11vh;
+    min-height: 60px;
+    background-color: rgb(21,21,21);
+    margin-bottom: 2vh;
+}
+
+.main{
+    width: 100vw;
+    min-height: 80vh;
+    overflow-x: hidden
+}
+
+.footer{
+    width: 100vw;
+    height: 5vh;
+    margin-top: 2vh;
+    background-color: rgb(21,21,21);
+}
+
+.fadeInRight{
+    animation-duration: 1s;
+    animation-name: fadeInRight;
+}
+.fadeInLeft{
+    animation-duration: 1s;
+    animation-name: fadeInLeft;
+}
+
+.fadeIn{
+    animation-duration: 1.5s;
+    animation-name: fadeIn;
+}
+
+.pagination{
+    margin: 30px;   
+
+    li{
+        list-style: none;
+    }
+
+     a{
+         text-decoration: none;
+         color: #ccc;
+     }   
+    .pre{
+        float: left;
+    }
+    .next{
+        float: right;
+    }
+    .pagbuttons{
+    }
+    .pagbuttons:hover{
+    }
+}
+
+@import "_partial/index"
+@import "_partial/header"
+@import "_partial/blog"
+@import "_partial/page"
+@import "_partial/animation"
+@import "_partial/sidebar"
+@import "_partial/archive"
+@import "_partial/about"

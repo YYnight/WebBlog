@@ -1,0 +1,15 @@
+.block.aboutme
+    .content
+        h2.ab_title 关于我
+        .avatar
+            img(src=url_for("images/logo.jpg"))
+        .ab_con
+            p!= "网名："+theme.nickname
+            p!= "职业："+theme.profession
+            p!= "微信："+theme.weixin
+            p!= "邮箱："+theme.email
+.block.weixin
+    .content
+        h2.wx_title 个人微信
+        .avatar
+            img(src=url_for("images/weixin.png"))

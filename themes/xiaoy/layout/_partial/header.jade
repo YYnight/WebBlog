@@ -1,0 +1,8 @@
+#banner
+    img(class="head",src=url_for("images/logo.jpg"))
+    #slider
+        for value,key in theme.menu
+            li
+                a(href=url_for(value))= __(key)
+                
+

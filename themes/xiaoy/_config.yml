@@ -1,0 +1,47 @@
+menu:
+    Home: /
+    Blog: /blog
+    Life: /life
+    Archives: /archives
+    About: /about
+    Code: /code
+    Photo: /photo
+
+##  个人信息
+nickname: 夭夜
+profession: java开发工程师
+weixin: Y--night
+email: 616834508@qq.com
+
+experience:
+    n1:
+        date: 2009
+        content: 前端入行
+    n2:
+        date: "2011-01-12"
+        content: 创建个人博客
+    n3:
+        date: "2013-06-08"
+        content: 分享第一个博客模板
+    n4:
+        date: "2013-08-08"
+        content: 制作第一个html5模板
+    n5:
+        date: "2017-09-08"
+        content: 模板更换为时间轴
+
+## 文章分类设置
+cate_config:
+   show_count: true
+   show_current: true
+
+## 文章归档设置
+arch_config:
+   type: 'monthly'
+   show_count: true
+   order: -1
+
+introduce: |
+    武池，男，一个90后码农！16年毕业于西安科技大学，离开了幸福却并不美好的校园生活，进入了日复一日的搬砖生活，拿着不高的薪水，过着捉襟见肘的生活，干着累死人的工作。不过我觉得我还是比较喜欢这份工作的，希望工资能调的更高一点，毕竟现在很需要money.
+
+    从刚刚入门到现在，了解过许多语言，比如python、node.js、java、c、html、css、js等，都有所了解，不过有的语言感觉不太适合自己，所以没有再去深入使用，即便现在从事着java开发，却从来没有放弃过前台开发，其实前台相对于后台来说有趣的多。看着自己写出美美的页面，满满的自豪油然而生

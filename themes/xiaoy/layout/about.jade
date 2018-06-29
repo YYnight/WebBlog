@@ -1,0 +1,25 @@
+extends _partial/layout
+block site_title 
+    != '夭夜的博客'
+block content
+    .blogcontent
+        .posts
+            .banner
+                p(data-scroll-reveal="enter top over 2s") 我们不停的翻弄着回忆，却再也找不回那时的自己
+                p(data-scroll-reveal="enter left over 2s after 1s") 人生，是一场盛大的遇见。若你懂得，就请珍惜。
+                p(data-scroll-reveal="enter bottom over 2s after 2s") 无论下多就的雨，最后都会有彩虹；无论你多么悲伤，要相信幸福在前方等候.
+            .memorial_day
+                .time_axis
+                ul
+                    for e,k in theme.experience
+                        li(class=k)
+                            a= e.content
+                            .dateview= e.date
+            .introduce
+                h2.intro_titile 个人简介
+                p.intro_content= theme.introduce
+                    
+            //-      \&nbsp;&nbsp;
+
+        .rightpane.fadeIn
+            include _partial/aboutme

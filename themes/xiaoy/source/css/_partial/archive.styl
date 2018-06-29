@@ -1,0 +1,137 @@
+.arcontent{
+    margin: auto;
+    width: 50vw;
+    background-color: rgba(255,255,255,1);
+    padding: 2%;
+}
+.cbp_tmtimeline{
+    margin: 30px 0 0 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+
+    li{
+        position: relative;
+
+        .cbp_tmtime{
+            display: block;
+            width: 100px;
+            padding-right: 30px;
+            position: absolute;
+            margin-left: 20px;
+
+            span {
+                display: block;
+                text-align: right;
+            }
+
+            span:first-child{
+                font-size:14px;
+                color: #ccc;
+            }
+            span:last-child{
+                font-size: 22px;
+                color: #444;
+            }  
+        }
+        .cbp_tmlabel{
+                margin: 0 50px 15px 180px;
+                background: #333;
+                color: #fff;
+                padding: 2em;
+                position: relative;
+                border-radius: 5px;
+                height 150px;
+
+                h2{
+                    margin-top: 0px;
+                    padding: 0 0 10px 0;
+                    font-size: 16px;
+                    text-shadow: rgba(7,84,152,0.71) 1px 1px 1px;
+                }
+            }
+            .cbp_tmlable:after{
+                right: 100%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-right-color: #333;
+                border-width: 10px;
+                top: 10px;
+            }
+            .cbp_tmicon{
+                width: 10px;
+                height: 10px;
+                font-family: 'ecoico';
+                speak: none;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                font-size: 1.4em;
+                line-height: 40px;
+                -webkit-font-smoothing: antialiased;
+                position: absolute;
+                color: #fff;
+                background: #333;
+                border-radius: 50%;
+                box-shadow: 0 0 0 3px #ccc;
+                text-align: center;
+                left: 170px;
+                top: 15px;
+                margin: 0 0 0 -25px;
+            }
+    }
+}
+.cbp_tmtimeline:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: #ccc;
+    left: 158px;
+    margin-left: -10px;
+}
+
+.blogpic{
+    width: 200px;
+    height: 120px;
+    overflow: hidden;
+    display: block;
+    float: left;
+    margin-right: 20px;
+
+    img{
+        width: 100%;
+        height: auto;
+        margin: auto;
+    }
+}
+a.readmore{
+    background: #000;
+    color: #fff;
+    padding: 5px 10px;
+    float: right;
+    margin: 20px 0 0 0;
+    border-radius: 5px;
+}
+.cbp_tmtimeline li .cbp_tmtime{
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+}
+
+.cbp_tmtimeline li:hover .cbp_tmicon{
+    box-shadow: 0 0 0 3px #ececec;
+}
+.cbp_tmtimeline li:hover .cbp_tmtime{
+    background: #aaa;
+    border-radius: 20px 0 0 20px;    
+}
+.cbp_tmtimeline li:hover .cbp_tmtime span{
+    color: #777;
+}

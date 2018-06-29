@@ -1,0 +1,22 @@
+meta(charset="utf-8")
+meta(name="viewport" content="width=device-width, initial-scale=1")
+meta(name="X-UA-Compatible", content="IE=edge")
+meta(name="author",content=theme.author)
+title
+    block site_title
+        = config.title
+block description
+    meta(name="description",content=config.description ? config.description : 'The Blog belong to night.')
+
+if page.keywords
+    meta(name="keywords",content=page.keywords)
+else
+    meta(name="keywords",content=theme.keywords)
+
+meta(name="renderer",content="webkit")
+link(rel='short icon',href="/images/favicon.png",type="image/x-icon")
+link(rel="stylesheet",href=url_for('css/style.css'))
+link(rel="stylesheet",href=url_for('css/blog_basic.css'))
+link(rel="stylesheet",href=url_for('css/code_style_dark.css'))
+link(rel="stylesheet",href=url_for('css/font-awesome.min.css'))
+

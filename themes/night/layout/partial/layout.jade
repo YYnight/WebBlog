@@ -1,0 +1,22 @@
+doctype
+html(lang='zh-CN')
+    head
+        include head
+    
+    body
+        include sidebar
+        .main
+            include nav
+            block content
+        //- script(src=url_for('js/jquery.js'))
+        //- script(src=url_for('js/jquery-migrate-1.2.1.min.js'))
+        //- script(src=url_for('js/jquery.appear.js'))
+        script(src=url_for('js/ev-nest.js'))
+        script(src=url_for('js/ev-tag.js'))
+        script(src=url_for('js/scrollReveal.js'))
+        script.
+            if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+                (function(){
+                    window.scrollReveal = new scrollReveal({reset: true});
+                })();
+            };

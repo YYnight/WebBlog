@@ -1,0 +1,63 @@
+extends _partial/layout
+block site_title 
+    != '夭夜的博客'
+block content
+    .container
+        .content
+            #indexmain
+                #error 本页面采用HTML5编辑，目前您的浏览器无法显示，请换成Chrome或者火狐
+                #wrap 
+                    #text
+                        #code
+                            font(color="#ff0000")
+                                span(class="say") 努力并不一定会达到目的，
+                                br
+                                span(class="say")
+                                br
+                                span(class="say") 但努力一定会有一个努力的结果，
+                                br
+                                span(class="say")
+                                br
+                                span(class="say") 无论结果怎样，和不努力肯定不一样的。
+                                br
+                                span(class="say")
+                                br
+                                span(class="say") 没有人可以决定自己会有什么样的未来，
+                                br
+                                span(class="say")
+                                br
+                                span(class="say") 但那些积累在身体上的感觉，
+                                br
+                                span(class="say")
+                                br
+                                span(class="say") 决定了当你可以站起来的那一刻，
+                                br
+                                span(class="say")
+                                br
+                                span(class="say") 你会是怎样的站立姿势，
+                                br
+                                span(class="say")
+                                br
+                                span(class="say") 也决定了你未来站立的地方！
+                                br
+                                span(class="say")
+                                br
+                                span(class="say")
+                                br
+                                span(class="say")
+                                br
+                                span(class="say")
+                                br
+                                span(class="say")
+                                    span(class="space")
+                                        span &#09;&#09;&#09;&#09;——《而立》
+                            p
+                    #clock-box
+                        span(class="STYLE1") 
+                        font(color="#33cc00") 
+                        span(class="STYLE1")
+                        #clock
+                    canvas(id="canvas",width="40vw",height="80vh")   
+
+        .about
+    script(src="js/index.js")

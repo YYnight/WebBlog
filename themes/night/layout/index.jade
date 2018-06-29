@@ -1,0 +1,9 @@
+extends partial/layout
+block content
+    .content
+        - page.posts.each(function (item) {
+            include postUtils
+            +make_post(item,false)
+        - })
+        include postUtils
+        +make_pager(__('prev'),__('next'))

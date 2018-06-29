@@ -1,0 +1,13 @@
+extends partial/layout
+
+block site_title
+    !='about me'+config.title
+
+block description
+    - var desc = "夭夜："+' - '+config.description
+    meta(name="description",content=desc)
+
+block content
+    .content.about-content
+        .about
+            p 我真的不知道该怎么办

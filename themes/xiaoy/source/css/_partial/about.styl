@@ -1,0 +1,95 @@
+.posts{
+    .banner{
+        height: 180px;
+        text-align: center;
+        overflow: hidden;
+        margin: 30px;
+        line-height: 30px;
+        text-shadow: #fff 1px 1px 1px;
+        background: url(../images/banner_top.jpg) no-repeat -90px center;
+        color: #333;
+        padding: 40px 0 0 0;
+    }
+    .memorial_day{
+        overflow: hidden;
+        position: relative;
+        padding: 60px;
+
+        .time_axis{
+            background: #e9f5fb;
+            height: 6px;
+            width: 100%;
+            animation: time_a 5s;
+        }
+    }
+}
+
+@keyframes time_a{
+    0%{
+        width: 0px;
+    }
+    25%{
+        width: 250px;
+    }
+    100%{
+        width: 500px;
+    }
+    100%{
+        width: 840px;
+    }
+}
+.dateview{
+    position: absolute;
+    top: -50px;
+    left: 20px;
+    display: block;
+    width: 88px;
+    background: url(../images/dtime.png) no-repeat;
+    color: #fff;
+    font-size: 15px;
+    height: 46px;
+    line-height: 30px;
+    text-align: center;
+}
+.memorial_day ul li a{
+    margin-top: 30px;
+    display: block;
+    color: #000;
+}
+.memorial_day ul li a:hover{
+    text-decoration: underline;
+}
+.memorial_day ul li:before{
+    content:"";
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position:absolute;
+    background: #0979b1;
+    border: 3px solid #e9f6fb;
+}
+.memorial_day ul li.n1{
+    position: absolute;
+    top: 54px;
+    left: 90px;
+}
+.memorial_day ul li.n2{
+    position: absolute;
+    top: 54px;
+    left: 220px;
+}
+.memorial_day ul li.n3{
+    position: absolute;
+    top: 54px;
+    left: 390px;
+}
+.memorial_day ul li.n4{
+    position: absolute;
+    top: 54px;
+    left: 580px;
+}
+.memorial_day ul li.n5{
+    position: absolute;
+    top: 54px;
+    left: 790px;
+}

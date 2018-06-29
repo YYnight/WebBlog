@@ -1,0 +1,14 @@
+extends _partial/layout
+block site_title 
+    != '夭夜的博客'
+block content
+    .blogcontent
+        .posts
+            - page.posts.each(function (item) {
+                include postUtils
+                +make_post(item,false)
+            - })
+            include mixins
+            +_paginator()
+        .rightpane.fadeIn
+            include _partial/sidebar

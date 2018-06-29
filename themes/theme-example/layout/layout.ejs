@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <%- partial('_partial/head') %>
+  <body>
+    <%- partial('_partial/header') %>
+    <main class="main">
+      <%- body %>
+    </main>
+    <script>
+      if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+          (function(){
+              window.scrollReveal = new scrollReveal({reset: true});
+          })();
+      };
+  </script>
+  </body>
+</html>

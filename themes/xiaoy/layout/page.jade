@@ -1,0 +1,25 @@
+extends _partial/layout
+block site_title
+    != page.title + " . " + config.title
+block description
+    - var desc = page.desc || strip_html(page.content).replace(/^\s*/,'').substring(0,150);
+    meta(name="description",content=desc)
+
+block content
+    .blogcontent
+        .pagecontent.fadeIn
+            include mixins
+            +make_post(page,true)
+            #uyan_frame
+            script(type="text/javascript",src="http://v2.uyan.cc/code/uyan.js?uid=2161339")
+            .pagination
+                ul.clearfix
+                    if page.prev
+                        li.pre.pagbuttons
+                            a.btn(role="navigation", href=url_for(page.prev.path),title=page.prev.title)!= __('prev_post')
+                    if page.next
+                        li.next.pagbuttons
+                            a.btn(role="navigation", href=url_for(page.next.path),title=page.next.title)!= __('next_post')
+        .rightpane.fadeIn
+            include _partial/sidebar
+
