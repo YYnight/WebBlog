@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Devil的博客
 subtitle:
-description:
-keywords:
-author: John Doe
+description: 
+keywords: Devil,技术,java,React
+author: Devil
 language: zh-CN
 timezone:
 
@@ -78,6 +78,12 @@ archive_generator:
         yearly: false
         monthly: false
         daily: false
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 
 # whether the hexo-generator-index2 include the offical hexo-generator-index, default is true
 index2_include_index: false # defult is true

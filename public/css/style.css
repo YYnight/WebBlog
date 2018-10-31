@@ -16,7 +16,9 @@ p {
   width: 100vw;
   height: 11vh;
   min-height: 60px;
-  background-color: #151515;
+  background-color: rgba(255,255,255,0.6);
+  background-size: cover;
+  box-shadow: 0px 10px 2px #ccc;
   margin-bottom: 2vh;
 }
 .main {
@@ -57,6 +59,33 @@ p {
 }
 .pagination .next {
   float: right;
+}
+.tag-list-item {
+  height: 3vh;
+}
+.tag-list-item span.tag-list-count {
+  color: #ccc;
+  line-height: 100%;
+  display: block;
+  float: right;
+  padding-right: 10%;
+  position: relative;
+}
+.tag-list-item span.tag-list-count:before {
+  position: absolute;
+  left: -23%;
+  content: "(";
+}
+.tag-list-item span.tag-list-count:after {
+  position: absolute;
+  right: 0%;
+  content: "篇)";
+}
+.tag-list-item:hover i.fa {
+  color: #000;
+}
+.tag-list-item:hover span.tag-list-count {
+  color: #aaa;
 }
 .container {
   width: 60vw;
@@ -144,6 +173,7 @@ p {
 #banner #slider {
   display: inline-block;
   margin-left: 16vw;
+  overflow: hidden;
 }
 #banner #slider li {
   display: inline-block;
@@ -156,11 +186,15 @@ p {
   cursor: pointer;
 }
 #banner #slider li a {
-  color: #fff;
+  color: #000;
   display: inline-block;
   width: 5vw;
   height: 5vh;
   text-decoration-line: none;
+}
+#banner #slider li:hover {
+  background-color: rgba(255,25,255,0.9);
+  transform: scale(1.5);
 }
 .blogcontent {
   width: 60vw;
@@ -617,6 +651,7 @@ p {
 a.readmore {
   background: #000;
   color: #fff;
+  text-decoration: none;
   padding: 5px 10px;
   float: right;
   margin: 20px 0 0 0;
@@ -769,4 +804,53 @@ a.readmore {
   100% {
     width: 840px;
   }
+}
+.photoContent {
+  margin: auto;
+  width: 50vw;
+  padding: 2%;
+}
+.photoContent #albums {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.photoContent #albums .album {
+  margin: 3vh 1.5%;
+  cursor: pointer;
+  width: 26%;
+  height: 26vh;
+  border: 1vh solid #111;
+}
+.photoContent #albums .album div {
+  width: 100%;
+  height: 80%;
+  overflow: hidden;
+}
+.photoContent #albums .album div img {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  transition: transform 0.5s;
+}
+.photoContent #albums .album .album-name {
+  padding: 0;
+  display: block;
+  background: #fff;
+  width: 100%;
+  height: 20%;
+  text-align: center;
+}
+.photoContent #albums .album:hover img {
+  transform: scale(1.1);
+  filter: blur(5px);
+}
+.photoContent #albums .album:hover img:before {
+  z-index: 100;
+  content: "曾经的那会执着已然消失";
 }

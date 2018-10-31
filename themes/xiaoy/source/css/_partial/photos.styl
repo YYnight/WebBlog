@@ -1,0 +1,51 @@
+.photoContent{
+    margin: auto;
+    width: 50vw;
+    padding: 2%;
+    #albums{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        .album{
+            margin: 3vh 1.5%;
+            cursor:pointer;
+            width: 26%;
+            height: 26vh;
+            border: 1vh solid #111;
+            div{
+                width: 100%;
+                height: 80%;
+                overflow:hidden;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    padding: 0;
+                    position: relative;
+                    margin: 0;
+                    overflow: hidden;
+                    transition: transform 0.5s;
+                }
+            }
+            .album-name{
+                padding: 0;
+                display: block;
+                background: white;
+                width: 100%;
+                height: 20%;
+                text-align: center;
+            }
+        }
+        .album:hover{
+            img{
+                transform: scale(1.1);
+                filter: blur(5px);
+            }
+            img:before{
+                z-index:100;
+                content:"曾经的那会执着已然消失";
+            }
+        }
+    }
+}

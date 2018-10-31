@@ -15,6 +15,7 @@
     #slider{
         display: inline-block;
         margin-left: 16vw;
+        overflow:hidden;
     }
 
     #slider li{
@@ -28,11 +29,15 @@
         cursor pointer;
 
         a{
-            color: white;
+            color: black;
             display: inline-block;
             width: 5vw;
             height: 5vh;
             text-decoration-line: none;
         }
+    }
+    #slider li:hover{
+        background-color:rgba(255,25,255,0.9);
+        transform: scale(1.5);
     }
 }

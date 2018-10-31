@@ -10,9 +10,11 @@ block content
         .pagecontent.fadeIn
             include mixins
             +make_post(page,true)
-            #uyan_frame
-            script(type="text/javascript",src="http://v2.uyan.cc/code/uyan.js?uid=2161339")
             .pagination
+                span#busuanzi_container_page_pv
+                    | 本文总阅读量
+                    span#busuanzi_value_page_pv
+                    | 次
                 ul.clearfix
                     if page.prev
                         li.pre.pagbuttons
@@ -20,6 +22,8 @@ block content
                     if page.next
                         li.next.pagbuttons
                             a.btn(role="navigation", href=url_for(page.next.path),title=page.next.title)!= __('next_post')
+            div(id="lv-container", data-id="city", data-uid="MTAyMC80MDMyMC8xNjg0Nw==")
+                script(src=url_for("js/libere.js"))
         .rightpane.fadeIn
-            include _partial/sidebar
+            include _partial/pageSidebar
 

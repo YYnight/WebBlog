@@ -1,12 +1,12 @@
 .block.search
     .content
-        input(type="text" placeholder="请输入关键字")
+        input(type="text" id="local-search-input" placeholder="请输入关键字")
         button.btnsearch(href="#")!= __('Search')
 include aboutme
 
 if site.posts.length
     .block.archives
-        h2.ar_title 归档
-        - var c = list_archives({show_count:theme.arch_config.show_count,type:theme.arch_config.type,order:theme.arch_config.order,transform:function(name){return '<i class="fa" aria-hidden="true">'+name+'</i>';}})
+        h2.ar_title 标签
+        - var c = list_tags({show_count:theme.arch_config.show_count,transform:function(name){return '<i class="fa" aria-hidden="true">'+name+'</i>';}})
         .content!= c
             

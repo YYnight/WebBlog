@@ -5,7 +5,8 @@ menu:
     Archives: /archives
     About: /about
     Code: /code
-    Photo: /photo
+    Photos: /photos
+    # Messages: /message
 
 ##  个人信息
 nickname: 夭夜
@@ -13,6 +14,8 @@ profession: java开发工程师
 weixin: Y--night
 email: 616834508@qq.com
 
+local_search:
+    enable: true
 experience:
     n1:
         date: 2009
@@ -34,6 +37,9 @@ experience:
 cate_config:
    show_count: true
    show_current: true
+
+livere:
+    on: true
 
 ## 文章归档设置
 arch_config:
