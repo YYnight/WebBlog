@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    text-decoration:none;
 }
 ul li{
     list-style: none;
@@ -14,14 +15,29 @@ p{
     word-break: break-all;
 }
 
+
 .header{
     width: 100vw;
-    height: 11vh;
-    min-height: 60px;
     background-color: rgba(255,255,255,0.6);
+    position: fixed;
+    line-height: 60px;
+    top: 0;
+    z-index:100;
     background-size: cover;
     box-shadow: 0px 10px 2px #ccc;
     margin-bottom: 2vh;
+}
+.line60{
+    height: 60px;
+    width: 100%;
+}
+
+.blank{
+    height: 20px;
+    overflow: hidden;
+    width: 100%;
+    margin: auto;
+    clear: both;
 }
 
 .main{
@@ -34,7 +50,7 @@ p{
     width: 100vw;
     height: 5vh;
     margin-top: 2vh;
-    background-color: rgb(21,21,21);
+    background-color: rgb(255,255,255);
 }
 
 .fadeInRight{
@@ -73,35 +89,22 @@ p{
     .pagbuttons:hover{
     }
 }
-.tag-list-item{
-    height:3vh;
-    span.tag-list-count{
-        color: #ccc;
-        line-height: 100%;
-        display: block;
-        float: right;
-        padding-right:10%;
-        position:relative;
+@media only screen and (max-width: 920px)
+    .rightpane{
+        display: none!important;
     }
-    span.tag-list-count:before{
-        position:absolute;
-        left:-23%;
-        content:"("
+    #main .size-controll {
+        width: 90vw!important;
+        min-width: 0px!important;
+        .content{
+            width: 100%;
+        }
     }
-    span.tag-list-count:after{
-        position:absolute;
-        right:-0%;
-        content:"篇)"
+    #main .post{
+        min-height:85vh;
     }
-}
-.tag-list-item:hover{
-     i.fa{
-         color: #000;
-     }
-     span.tag-list-count{
-         color: #aaa;
-     }
-}
+
+
 
 @import "_partial/index"
 @import "_partial/header"

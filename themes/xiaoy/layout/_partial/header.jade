@@ -1,8 +1,26 @@
 #banner
     img(class="head",src=url_for("images/logo.jpg"))
+    h2(id="mmenu")
+        span(class="navicon")
     #slider
         for value,key in theme.menu
             li
                 a(href=url_for(value))= __(key)
-                
+script(type='text/javascript').
+      var mmenu = document.getElementById("mmenu");
+      var slider = document.getElementById("slider");
+      mmenu.onclick = function() {
+      var style = slider.style;
+      slider.style.display = style.display == "block" ? "none" : "block"
+      mmenu.className = style.display == "block" ? "open" : ""
+      }
+      var as = slider.getElementsByTagName('a');
+      obj = as[0];
+      for (var i = 1; i < as.length; i++) {
+      if (window.location.href.indexOf(as[i].href) >= 0) {
+      obj = as[i];
+      }
+      }
+      obj.id = 'selected'
+
 

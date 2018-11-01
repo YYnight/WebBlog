@@ -1,6 +1,7 @@
 .block{
     background-color: white;
     width: 85%;
+    min-width: 270px;
     border-radius: 10px;
     margin-bottom: 2vh;
     .content{
@@ -138,6 +139,9 @@
         right:0;
         bottom: 8px;
     }
+    .content{
+        margin: 0 20px;
+    }
     li{
         list-style: none;
         a{
@@ -154,4 +158,34 @@
     .archive-list-count:after{
         content:")";
     }
+}
+
+.tag-list-item{
+    height:3vh;
+    span.tag-list-count{
+        color: #ccc;
+        line-height: 100%;
+        display: block;
+        float: right;
+        padding-right:10%;
+        position:relative;
+    }
+    span.tag-list-count:before{
+        position:absolute;
+        left:-23%;
+        content:"("
+    }
+    span.tag-list-count:after{
+        position:absolute;
+        right:-0%;
+        content:"篇)"
+    }
+}
+.tag-list-item:hover{
+     i.fa{
+         color: #000;
+     }
+     span.tag-list-count{
+         color: #aaa;
+     }
 }

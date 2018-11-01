@@ -2,8 +2,8 @@ extends _partial/layout
 block site_title 
     != '夭夜的博客'
 block content
-    .blogcontent
-        .posts
+    .blogcontent.size-controll
+        .posts.content
             - page.posts.each(function (item) {
                 include postUtils
                 +make_post(item,false)

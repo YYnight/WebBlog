@@ -6,8 +6,8 @@ block description
     meta(name="description",content=desc)
 
 block content
-    .blogcontent
-        .pagecontent.fadeIn
+    .blogcontent.size-controll
+        .pagecontent.fadeIn.content
             include mixins
             +make_post(page,true)
             .pagination

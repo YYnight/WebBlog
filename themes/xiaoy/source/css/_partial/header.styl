@@ -1,43 +1,130 @@
 #banner{
     margin: 0 auto;
-    width: 60%;
-    height: 100%;
+    width: 60vw;
 
     .head{
-        display: inline-block;
-        width:11vh;
-        height:11vh;
-        min-width: 60px;
-        min-height: 60px;
+        display: block;
+        float: left;
+        width:60px;
+        height:60px;
         border-radius: 50%;
     }
 
     #slider{
-        display: inline-block;
-        margin-left: 16vw;
+        display: block;
+        float: right;
         overflow:hidden;
     }
-
-    #slider li{
-        display: inline-block;
-        float: left;
-        width: 5vw;
-        height: 5vh;
-        min-height: 30px;
-        line-height: 5vh;
-        text-align: center;
-        cursor pointer;
-
-        a{
-            color: black;
-            display: inline-block;
-            width: 5vw;
-            height: 5vh;
-            text-decoration-line: none;
-        }
-    }
+/*
     #slider li:hover{
-        background-color:rgba(255,25,255,0.9);
         transform: scale(1.5);
+        font-weight: bold;
+    }
+    */
+    #selected{
+         transform: scale(1.5);
+        font-weight: bold;
     }
 }
+#mmenu{
+    display: none;
+    width: 30px;
+    height: 40px;
+    float: right;
+    text-align: center;
+    padding: 0 5px;
+
+    .navicon{
+        display:block;
+        position:relative;
+        width:30px;
+        height: 5px;
+        margin-top: 20px;
+
+    }
+}
+.open {
+    .navicon{
+        background:none;
+    }
+    .navicon:before,.navicon:after{
+        content:'';
+        display:block;
+        width:30px;
+        height:5px;
+        position: absolute;
+        background:#000;
+    }
+
+    .navicon:before{
+        margin-top:0;
+        transform:rotate(45deg);
+    }
+    .navicon:after{
+        margin-top:0;
+        transform:rotate(-45deg);
+    }
+
+}
+.navicon{
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 5px;
+    background-color: #000;
+    margin-top: 20px;
+}
+.navicon:before{
+    margin-top: -10px;
+}
+.navicon:after{
+    margin-top: 10px;
+}
+.navicon:before, .navicon:after{
+    content: '';
+    display: block;
+    width: 30px;
+    height: 5px;
+    position:absolute;
+    background:#000;
+    transition-duration: 300ms;
+}
+#slider li{
+    display: inline-block;
+    float: left;
+    width: 5vw;
+    height: 5vh;
+    min-height: 30px;
+    line-height: 5vh;
+    text-align: center;
+    cursor pointer;
+
+    a{
+        color: black;
+        display: inline-block;
+        text-decoration-line: none;
+    }
+}
+@media only screen and (max-width: 840px) and (min-width: 342px)
+    #banner #slider {
+        display: none;
+        width: 100%;
+    }
+    #slider li{
+        float: none;
+        display: block;
+        width:100%;
+        text-align:center;
+    }
+    #mmenu{
+        display: block;
+    }
+    #banner{
+        width: 96%;
+        overflow: hidden;
+    }
+@media only screen and (max-width: 1200px) and (min-width: 860px)
+    #nav{
+        width: 90%;
+        overflow: hidden;
+    }

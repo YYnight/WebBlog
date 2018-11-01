@@ -2,7 +2,8 @@ extends _partial/layout
 block site_title 
     != '夭夜的博客'
 block content
-    .arcontent
+    #archive-content.arcontent.size-controll
+        #content
             ul.cbp_tmtimeline
                 - page.posts.each(function(item){
                     li
@@ -24,3 +25,7 @@ block content
                                 != truncate(strip_html(item.content),{length: 100})
                             a(href=url_for(item.path),class="readmore")!= "阅读全文>>"
                 - })
+        .rightpane.fadeIn
+            include _partial/sidebar
+        script.
+            filter()

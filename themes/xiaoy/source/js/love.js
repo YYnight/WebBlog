@@ -296,11 +296,13 @@
 
         addBranchs: function(branchs){
             var s = this, b, p1, p2, p3, r, l, c;
+            console.log(this.width)
+            var xs = this.width/1100,ys=this.height/680;
         	for (var i = 0; i < branchs.length; i++) {
                 b = branchs[i];
-                p1 = new Point(b[0], b[1]);
-                p2 = new Point(b[2], b[3]);
-                p3 = new Point(b[4], b[5]);
+                p1 = new Point(b[0]*xs, b[1]*ys);
+                p2 = new Point(b[2]*xs, b[3]*ys);
+                p3 = new Point(b[4]*xs, b[5]*ys);
                 r = b[6];
                 l = b[7];
                 c = b[8]

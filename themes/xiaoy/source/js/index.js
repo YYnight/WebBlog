@@ -6,7 +6,8 @@
         return false;        }
 
     var width = canvas.width();
-    var height = canvas.height();        
+    var height = canvas.height();  
+    console.log(width);      
     canvas.attr("width", width);
     canvas.attr("height", height);
     var opts = {
