@@ -296,6 +296,7 @@
 
         addBranchs: function(branchs){
             var s = this, b, p1, p2, p3, r, l, c;
+            console.log(this.width)
             var xs = this.width/1100,ys=this.height/680;
         	for (var i = 0; i < branchs.length; i++) {
                 b = branchs[i];

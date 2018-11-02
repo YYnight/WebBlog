@@ -13,14 +13,30 @@ body {
 p {
   word-break: break-all;
 }
+#main .size-controll {
+  min-width: 1000px;
+}
 .header {
   width: 100vw;
-  height: 11vh;
-  min-height: 60px;
   background-color: rgba(255,255,255,0.6);
+  position: fixed;
+  line-height: 60px;
+  top: 0;
+  z-index: 100;
   background-size: cover;
   box-shadow: 0px 10px 2px #ccc;
   margin-bottom: 2vh;
+}
+.line60 {
+  height: 60px;
+  width: 100%;
+}
+.blank {
+  height: 20px;
+  overflow: hidden;
+  width: 100%;
+  margin: auto;
+  clear: both;
 }
 .main {
   width: 100vw;
@@ -31,7 +47,7 @@ p {
   width: 100vw;
   height: 5vh;
   margin-top: 2vh;
-  background-color: #151515;
+  background-color: #fff;
 }
 .fadeInRight {
   animation-duration: 1s;
@@ -61,36 +77,87 @@ p {
 .pagination .next {
   float: right;
 }
-.tag-list-item {
-  height: 3vh;
+@media only screen and (max-width: 1000px) {
+  .rightpane {
+    display: none !important;
+  }
+  #main .size-controll {
+    min-width: 300px;
+  }
+  #main .size-controll .content {
+    width: 100%;
+  }
+  #main .posts {
+    min-height: 85vh;
+  }
+  #main #archive-content {
+    width: 90vw;
+  }
+  #main #archive-content #content {
+    width: 100%;
+  }
 }
-.tag-list-item span.tag-list-count {
-  color: #ccc;
-  line-height: 100%;
-  display: block;
-  float: right;
-  padding-right: 10%;
-  position: relative;
+@media only screen and (max-width: 800px) {
+  #main #archive-content {
+    width: 100vw;
+  }
+  #main #archive-content #content {
+    width: 100%;
+  }
 }
-.tag-list-item span.tag-list-count:before {
-  position: absolute;
-  left: -23%;
-  content: "(";
+@media only screen and (max-width: 700px) {
+  #main #archive-content {
+    width: 100vw;
+  }
+  #main #archive-content #content {
+    width: 100%;
+  }
+  #main #archive-content #content #post-footer {
+    display: block;
+  }
+  #main #archive-content #content .cbp_tmtimeline:before {
+    display: none;
+  }
+  #main #archive-content #content .cbp_tmtime {
+    display: none;
+  }
+  #main #archive-content #content .cbp_tmicon {
+    display: none;
+  }
+  #main #archive-content #content .cbp_tmlabel {
+    margin: 0 0 20px 0;
+    height: auto;
+    padding: 1em 0 2em 0;
+    border-radius: 0px;
+    background: #fff;
+  }
+  #main #archive-content #content .cbp_tmlabel .readmore {
+    display: none;
+  }
+  #main #archive-content #content li {
+    border-bottom: solid 1px #ccc;
+  }
+  #main #archive-content #content li #post-footer: {
+    display: block;
+  }
 }
-.tag-list-item span.tag-list-count:after {
-  position: absolute;
-  right: 0%;
-  content: "篇)";
-}
-.tag-list-item:hover i.fa {
-  color: #000;
-}
-.tag-list-item:hover span.tag-list-count {
-  color: #aaa;
+@media only screen and (max-width: 612px) {
+  #main #archive-content #content .blogpic {
+    width: 100%;
+    float: none;
+  }
+  #main #archive-content #content #bloginfo p {
+    color: #888;
+    font-size: 14px;
+  }
+  #main #archive-content #content .cbp_tmlabel {
+    margin: 0 0 10px 0;
+    padding: 1em 0 0 0;
+  }
 }
 .container {
   width: 60vw;
-  height: 80vh;
+  height: 85vh;
   margin: 0 auto;
   justify-content: center;
   font-size: 14px;
@@ -160,23 +227,90 @@ p {
 }
 #banner {
   margin: 0 auto;
-  width: 60%;
-  height: 100%;
+  width: 60vw;
+/*
+    #slider li:hover{
+        transform: scale(1.5);
+        font-weight: bold;
+    }
+    */
 }
 #banner .head {
-  display: inline-block;
-  width: 11vh;
-  height: 11vh;
-  min-width: 60px;
-  min-height: 60px;
+  display: block;
+  float: left;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 #banner #slider {
-  display: inline-block;
-  margin-left: 16vw;
+  display: block;
+  float: right;
   overflow: hidden;
 }
-#banner #slider li {
+#banner #selected {
+  transform: scale(1.5);
+  font-weight: bold;
+}
+#mmenu {
+  display: none;
+  width: 30px;
+  height: 40px;
+  float: right;
+  text-align: center;
+  padding: 0 5px;
+}
+#mmenu .navicon {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 5px;
+  margin-top: 20px;
+}
+.open .navicon {
+  background: none;
+}
+.open .navicon:before,
+.open .navicon:after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 5px;
+  position: absolute;
+  background: #000;
+}
+.open .navicon:before {
+  margin-top: 0;
+  transform: rotate(45deg);
+}
+.open .navicon:after {
+  margin-top: 0;
+  transform: rotate(-45deg);
+}
+.navicon {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 5px;
+  background-color: #000;
+  margin-top: 20px;
+}
+.navicon:before {
+  margin-top: -10px;
+}
+.navicon:after {
+  margin-top: 10px;
+}
+.navicon:before,
+.navicon:after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 5px;
+  position: absolute;
+  background: #000;
+  transition-duration: 300ms;
+}
+#slider li {
   display: inline-block;
   float: left;
   width: 5vw;
@@ -186,20 +320,38 @@ p {
   text-align: center;
   cursor: pointer;
 }
-#banner #slider li a {
+#slider li a {
   color: #000;
   display: inline-block;
-  width: 5vw;
-  height: 5vh;
   text-decoration-line: none;
 }
-#banner #slider li:hover {
-  background-color: rgba(255,25,255,0.9);
-  transform: scale(1.5);
+@media only screen and (max-width: 840px) and (min-width: 342px) {
+  #banner #slider {
+    display: none;
+    width: 100%;
+  }
+  #slider li {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  #mmenu {
+    display: block;
+  }
+  #banner {
+    width: 96%;
+    overflow: hidden;
+  }
+}
+@media only screen and (max-width: 1200px) and (min-width: 860px) {
+  #nav {
+    width: 90%;
+    overflow: hidden;
+  }
 }
 .blogcontent {
   width: 60vw;
-  min-width: 1000px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -214,10 +366,11 @@ p {
 }
 .posts {
   background-color: #fff;
-  padding: 2%;
+  padding: 20px;
   width: 65%;
   float: left;
   border-radius: 5px;
+  margin-right: 20px;
 }
 .posts .post {
   border-bottom: 1px solid #ccc;
@@ -398,6 +551,7 @@ p {
 .block {
   background-color: #fff;
   width: 85%;
+  min-width: 270px;
   border-radius: 10px;
   margin-bottom: 2vh;
 }
@@ -527,6 +681,9 @@ p {
   right: 0;
   bottom: 8px;
 }
+.archives .content {
+  margin: 0 20px;
+}
 .archives li {
   list-style: none;
 }
@@ -543,11 +700,55 @@ p {
 .archives .archive-list-count:after {
   content: ")";
 }
+.tag-list-item {
+  height: 3vh;
+}
+.tag-list-item span.tag-list-count {
+  color: #ccc;
+  line-height: 100%;
+  display: block;
+  float: right;
+  padding-right: 10%;
+  position: relative;
+}
+.tag-list-item span.tag-list-count:before {
+  position: absolute;
+  left: -23%;
+  content: "(";
+}
+.tag-list-item span.tag-list-count:after {
+  position: absolute;
+  right: 0%;
+  content: "篇)";
+}
+.tag-list-item:hover i.fa {
+  color: #000;
+}
+.tag-list-item:hover span.tag-list-count {
+  color: #aaa;
+}
 .arcontent {
+  width: 65vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   margin: auto;
-  width: 50vw;
+}
+.arcontent #content {
   background-color: #fff;
-  padding: 2%;
+  width: 73%;
+  padding: 20px;
+  float: left;
+  border-radius: 5px;
+  margin-top: 0px;
+  margin-right: 20px;
+}
+.arcontent .rightpane {
+  float: right;
+  width: 20%;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
 }
 .cbp_tmtimeline {
   margin: 30px 0 0 0;
@@ -579,12 +780,19 @@ p {
 }
 .cbp_tmtimeline li .cbp_tmlabel {
   margin: 0 50px 15px 180px;
-  background: #333;
-  color: #fff;
+  background: rgba(200,200,200,0.6);
+  color: #000;
   padding: 2em;
   position: relative;
   border-radius: 5px;
   height: 150px;
+}
+.cbp_tmtimeline li .cbp_tmlabel p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .cbp_tmtimeline li .cbp_tmlabel h2 {
   margin-top: 0px;
@@ -636,9 +844,24 @@ p {
   left: 158px;
   margin-left: -10px;
 }
+#post-footer {
+  margin-top: 2px;
+  display: none;
+  color: #ccc;
+  font-size: 13px;
+}
+#post-footer .fa {
+  padding-right: 20px;
+}
+#post-footer a {
+  color: #ccc;
+}
+#post-footer a:hover {
+  color: #666;
+}
 .blogpic {
-  width: 200px;
-  height: 120px;
+  width: 30%;
+  max-height: 120px;
   overflow: hidden;
   display: block;
   float: left;
@@ -672,6 +895,15 @@ a.readmore {
 }
 .cbp_tmtimeline li:hover .cbp_tmtime span {
   color: #777;
+}
+@media only screen and (max-width: 840px) and (min-width: 342px) {
+  .arcontent {
+    width: 100%;
+    min-width: 0px;
+  }
+}
+.aboutcontent {
+  min-height: 85vh;
 }
 .posts .banner {
   height: 180px;

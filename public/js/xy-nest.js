@@ -1,13 +1,14 @@
+const ww = window.innerWidth;
+const wh = window.innerHeight;
+
 const conf = {
-    count: 150,
+    count: 150*ww/2000,
     r1: 85,
     r2: 100,
     opacity: .7,
     color: '#000'
 }
 let canvas,ctx;
-const ww = window.innerWidth;
-const wh = window.innerHeight;
 
 let nodes = [];
 let cnode = {
@@ -54,6 +55,22 @@ window.onload = function() {
         cnode.y = 0;
         cnode.r = 0;
     }
+
+    window.addEventListener('resize', function(e){
+        var w = e.target;
+        var rightpane = document.getElementsByClassName("rightpane")[0];
+        var ac = document.getElementById("archive-content");
+        
+        if(w.innerWidth < 840){
+            if(ac){
+                var ps = ac.getElementsByTagName("p")
+                this.console.log(ps)
+                for(let i = 0; i<ps.length; i++){
+                    // ps[i].textContent = beautySub(ps[i].textContent,50)
+                }
+            }
+        }
+    })
 }
 
 function parseColor(c,a) {

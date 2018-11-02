@@ -13,7 +13,7 @@ block content
                         .cbp_tmicon
                         div(class="cbp_tmlabel fadeInRight",data-scroll-reveal="enter right over 1s")
                             h2= item.title
-                            p
+                            #bloginfo
                                 span.blogpic
                                     a(href=url_for(item.path))
                                         -if(item.categories.data[0].name == 'life')
@@ -22,8 +22,17 @@ block content
                                             img(src=url_for('images/p02.jpg'))
                                         -if(item.categories.data[0].name == 'code')
                                             img(src=url_for('images/p03.jpg'))
-                                != truncate(strip_html(item.content),{length: 100})
+                                p!= truncate(strip_html(item.content),{length: 200})
                             a(href=url_for(item.path),class="readmore")!= "阅读全文>>"
+                        #post-footer
+                            .info
+                                i.fa.fa-calendar
+                                    span.date= date(item.date,'YYYY-MM-DD')
+                                if item.tags
+                                    i.fa.fa-tag
+                                        - item.tags.sort('posts').each(function(item){
+                                            a.tag(href=config.root + item.path, title= item.name)= item.name + " "
+                                        - });
                 - })
         .rightpane.fadeIn
             include _partial/sidebar

@@ -15,6 +15,9 @@ p{
     word-break: break-all;
 }
 
+#main .size-controll{
+    min-width:1000px;
+}
 
 .header{
     width: 100vw;
@@ -89,22 +92,85 @@ p{
     .pagbuttons:hover{
     }
 }
-@media only screen and (max-width: 920px)
+@media only screen and (max-width: 1000px)
     .rightpane{
         display: none!important;
     }
     #main .size-controll {
-        width: 90vw!important;
-        min-width: 0px!important;
+        min-width: 300px;
         .content{
             width: 100%;
         }
     }
-    #main .post{
+    #main .posts{
         min-height:85vh;
     }
+    #main #archive-content{
+        width: 90vw;
+        #content{
+            width:100%;
+        }
+    }
 
-
+@media only screen and (max-width: 800px)
+    #main #archive-content{
+        width: 100vw;
+        #content{
+            width:100%;
+        }
+    }
+@media only screen and (max-width: 700px)
+    #main #archive-content{
+        width: 100vw;
+        #content{
+            width:100%;
+            #post-footer{
+                display:block;
+            }
+            .cbp_tmtimeline:before{
+                display:none;
+            }
+            .cbp_tmtime{
+                display:none;
+            }
+            .cbp_tmicon{
+                display:none;
+            }
+            .cbp_tmlabel{
+                margin: 0 0 20px 0;
+                height:auto;
+                padding 1em 0 2em 0;
+                border-radius:0px;
+                background:white;
+                .readmore{
+                    display:none;
+                }
+            }
+            li{
+                border-bottom: solid 1px #ccc;
+                #post-footer:{
+                    display:block;
+                }
+            }
+        }
+    }
+@media only screen and (max-width: 612px)
+    #main #archive-content #content{
+        .blogpic{
+            width:100%;
+            float:none;
+        }
+        #bloginfo{
+            p{
+                color: #888;
+                font-size: 14px;
+            }
+        }
+        .cbp_tmlabel{
+            margin: 0 0 10px 0;
+            padding: 1em 0 0 0;
+        }
+    }
 
 @import "_partial/index"
 @import "_partial/header"
