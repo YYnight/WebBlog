@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Devil"><title>String并没有那么简单 . Devil的博客</title><meta name="description" content="​    对于String，可能大家非常熟悉，可是它并非看起来那么简单。一般创建String有两种不同的创建方法。第一种是通过双引号创建，第二种是通过new创建。
+直接使用双引号创建字符串123String a1 = &quot;A&quot;;String a2 = &quot;A&quot;;System.out.pringln(a1"><meta name="keywords" content="Devil,技术,java,React"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/code_style_dark.css"><script src="/js/scrollReveal.js"></script><script src="/js/jquery.min.js"></script><script src="/js/jscex.min.js"></script><script src="/js/jscex-parser.js"></script><script src="/js/jscex-jit.js"></script><script src="/js/jscex-builderbase.min.js"></script><script src="/js/jscex-async.min.js"></script><script src="/js/jscex-async-powerpack.min.js"></script><script src="/js/functions.js"></script><script src="/js/love.js"></script><script src="/js/filter.js"></script><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></head><body><div class="header"><div id="banner"><a href="/"><img src="/images/logo.jpg" class="head"></a><h2 id="mmenu"><span class="navicon"></span></h2><div id="slider"><li><a href="/">首页</a></li><li><a href="/blog">博客</a></li><li><a href="/life">生活</a></li><li><a href="/archives">归档</a></li><li><a href="/about">关于我</a></li><li><a href="/code">短码</a></li><li><a href="/photos">相册</a></li></div></div><script type="text/javascript">var mmenu = document.getElementById("mmenu");
+var slider = document.getElementById("slider");
+mmenu.onclick = function() {
+var style = slider.style;
+slider.style.display = style.display == "block" ? "none" : "block"
+mmenu.className = style.display == "block" ? "open" : ""
+}
+var as = slider.getElementsByTagName('a');
+obj = as[0];
+for (var i = 1; i < as.length; i++) {
+if (window.location.href.indexOf(as[i].href) >= 0) {
+obj = as[i];
+}
+}
+obj.id = 'selected'</script></div><div class="line60"></div><div class="blank"></div><div id="main"><div class="blogcontent size-controll"><div class="pagecontent fadeIn content"><div class="post animated fadeInDown"><div class="post-title"><h3><a>String并没有那么简单</a></h3></div><div class="post-content"><p>​    对于String，可能大家非常熟悉，可是它并非看起来那么简单。一般创建String有两种不同的创建方法。第一种是通过双引号创建，第二种是通过new创建。</p>
+<h3 id="直接使用双引号创建字符串"><a href="#直接使用双引号创建字符串" class="headerlink" title="直接使用双引号创建字符串"></a>直接使用双引号创建字符串</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String a1 = <span class="string">"A"</span>;</span><br><span class="line">String a2 = <span class="string">"A"</span>;</span><br><span class="line">System.out.pringln(a1 == a2); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>​    这个很容易理解吧，创建a1时，因为A并不存在于常量池，所以先在常量池中创建A，然后返回给a1,在创建a2的时候，因为常量池中已经存在A，所以直接返回给a2。</p>
+<p>###使用new创建字符串</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String b1 = <span class="keyword">new</span> String(<span class="string">"B"</span>);</span><br><span class="line">System.out.println(b1 == b1.intern()); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p>​    因为在创建b1对象时，因为他的参数“B”，所以现在常量池中创建了该常量，b1.intern()方法返回的是在常量池中的常量“B”，而b1是指向堆中的地址空间</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    String aa = <span class="string">"aa"</span>;</span><br><span class="line">    String bb = <span class="string">"bb"</span>;</span><br><span class="line">    String ccdd = <span class="string">"cc"</span> + <span class="string">"dd"</span>;	<span class="comment">//在编译期直接编译为“ccdd”，故常量池中只有ccdd，没有cc和dd</span></span><br><span class="line">    String eeff = <span class="keyword">new</span> String(<span class="string">"ee"</span>) + String(<span class="string">"ff"</span>);	<span class="comment">//添加ee和ff到常量池，并添加ee，ff，eeff到堆</span></span><br><span class="line">    String aabb = aa + bb;	<span class="comment">//添加aabb到堆，这块相当于使用了StringBuilder拼接</span></span><br><span class="line">    String gghh = <span class="string">"gg"</span> + <span class="keyword">new</span> String(<span class="string">"hh"</span>);	<span class="comment">//添加gg和hh到常量池，添加hh和gghh到堆</span></span><br><span class="line">    </span><br><span class="line">    aa.intern();	<span class="comment">//因为aa已经存在于常量池，故返回常量aa</span></span><br><span class="line">    ccdd.intern();	<span class="comment">//返回常量ccdd</span></span><br><span class="line">    eeff.intern();	<span class="comment">//添加eeff对象的引用地址到常量池，并返回eeff的引用</span></span><br><span class="line">    aabb.intern();	<span class="comment">//添加eeff对象的引用地址到常量池，并返回eeff的引用</span></span><br><span class="line">    gghh.intern();	<span class="comment">//添加eeff对象的引用地址到常量池，并返回eeff的引用</span></span><br><span class="line">    </span><br><span class="line">    System.out.println(aa.intern() == aa);	<span class="comment">//true</span></span><br><span class="line">    System.out.println(eeff.intern() == <span class="string">"eeff"</span>);	<span class="comment">//true</span></span><br><span class="line">    System.out.println(<span class="string">"eeff"</span> == eeff);	<span class="comment">//true</span></span><br><span class="line">    String nccdd = <span class="keyword">new</span> String(<span class="string">"nccdd"</span>);	</span><br><span class="line">    System.out.println(ccdd == nccdd);	<span class="comment">//false</span></span><br><span class="line">    System.out.println(ccdd == nccdd.intern());	<span class="comment">//true</span></span><br><span class="line">    System.out.println(aabb.intern() == aabb); <span class="comment">//true</span></span><br><span class="line">    System.out.println(gghh == gghh.intern()); <span class="comment">//true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>小结</strong></p>
+<p>​    <em>1.使用双引号创建字符串：</em></p>
+<p>​        <em>如果常量已经存在或者已存在这个常量在堆上的引用地址</em></p>
+<p>​            <em>若是常量，返回常量池中的常量，若是引用，返回这个引用地址指向的堆空间对象</em></p>
+<p>​        <em>如果常量不存在</em></p>
+<p>​            <em>在常量池中创建常量，并返回该常量</em></p>
+<p>​    <em>2.使用new创建字符串</em></p>
+<p>​        <em>如果这个new操作的参数是双引号字符串，先判断这个常量在常量池中是否存在，若不存在则在常量池                                            中创建，若存在，什么都不做，然后在堆空间上创建字符串对象</em></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>常量池上的常量</th>
+<th>常量池中的引用</th>
+<th>堆上对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常量池上的对象</td>
+<td>❌</td>
+<td>不共存</td>
+<td>共存</td>
+</tr>
+<tr>
+<td>常量池上的引用</td>
+<td>不共存</td>
+<td>❌</td>
+<td>共存</td>
+</tr>
+<tr>
+<td>堆上对象</td>
+<td>共存</td>
+<td>共存</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>###下面有一道比较有趣的题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RuntimeConstantPoolOOM</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String str1 = <span class="keyword">new</span> StringBuilder(<span class="string">"计算机"</span>).append(<span class="string">"软件"</span>).toString();</span><br><span class="line">       	System.out.println(str1.intern() == str1);</span><br><span class="line">        </span><br><span class="line">        String str2 = <span class="keyword">new</span> StringBuilder(<span class="string">"ja"</span>).append(<span class="string">"va"</span>).toString();</span><br><span class="line">        System.out.println(str2.intern() == str2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    这段代码在JDK1.6中运行，会得到两个false，而在JDK1.7中运行，会得到一个true和一个false。产生差异的原因是：在JDK1.6中，intern()方法会把首次遇到的字符串实力复制到永久代中，返回的也是永久代中这个字符串实例的引用，而由StringBuilder创建的字符串实例在Java堆上，所以必然不是同一个引用，将返回false。而JDK1.7（以及部分其他虚拟机，例如JRockit）的intern()实现不会再复制实例，只是在常量池中记录首次出现的实例引用，因此intern()返回的引用和由StringBuilder创建的那个字符串实例是同一个。对str2比较返回false是因为“Java”这个字符串在执行StringBuilder.toString()之前已经出现过，字符串常量池中已经有它的引用了，不符合“首次出现”的原则，而“计算机软件”这个字符串则是首次出现的，因此返回true。</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2018-11-09</span><i class="fa fa-tag"></i><a href="/categories/article/" title="article" class="tag">article </a><a href="/tags/Java/" title="Java" class="tag">Java </a></div></div></div></div><div class="pagination"><span id="busuanzi_container_page_pv">本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span><ul class="clearfix"><li class="next pagbuttons"><a role="navigation" href="/2018/05/14/刨析float型的内存存储和精度丢失问题/" title="刨析float型的内存存储和精度丢失问题" class="btn">下一篇</a></li></ul></div><div id="lv-container" data-id="city" data-uid="MTAyMC80MDMyMC8xNjg0Nw=="><script src="/js/libere.js"></script></div></div><div class="rightpane fadeIn"><div class="block aboutme"><div class="content"><h2 class="ab_title">关于我</h2><div class="avatar"><img src="/images/logo.jpg"></div><div class="ab_con"><p>网名：夭夜</p><p>职业：java开发工程师</p><p>微信：Y--night</p><p>邮箱：616834508@qq.com</p></div></div></div><div class="block weixin"><div class="content"><h2 class="wx_title">个人微信</h2><div class="avatar"><img src="/images/weixin.png"></div></div></div><div class="block archives"><h2 class="ar_title">标签</h2><div class="content"><ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/"><i class="fa" aria-hidden="true">Java</i></a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Js/"><i class="fa" aria-hidden="true">Js</i></a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/"><i class="fa" aria-hidden="true">Spring</i></a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kotlin/"><i class="fa" aria-hidden="true">kotlin</i></a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/"><i class="fa" aria-hidden="true">nginx</i></a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/"><i class="fa" aria-hidden="true">springboot</i></a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密/"><i class="fa" aria-hidden="true">加密</i></a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/故事/"><i class="fa" aria-hidden="true">故事</i></a><span class="tag-list-count">1</span></li></ul></div></div></div></div></div><div class="footer"></div><script src="/js/xy-nest.js"></script><script>if(!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+    (function(){
+        window.scrollReveal = new scrollReveal({reset: true});
+    })();
+}</script></body></html>

@@ -58,17 +58,14 @@ window.onload = function() {
 
     window.addEventListener('resize', function(e){
         var w = e.target;
-        var rightpane = document.getElementsByClassName("rightpane")[0];
-        var ac = document.getElementById("archive-content");
-        
-        if(w.innerWidth < 840){
-            if(ac){
-                var ps = ac.getElementsByTagName("p")
-                this.console.log(ps)
-                for(let i = 0; i<ps.length; i++){
-                    // ps[i].textContent = beautySub(ps[i].textContent,50)
-                }
-            }
+        var slider = this.document.getElementById("slider");
+        var mmenu = document.getElementById("mmenu");
+        if(w.innerWidth > 840){
+            slider.style.display = "block";
+            mmenu.style.display = "open";
+        } else {
+            slider.style.display = "none";
+            mmenu.className = "";
         }
     })
 }
